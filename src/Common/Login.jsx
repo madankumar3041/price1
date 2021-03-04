@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import {Link} from 'react-router-dom';
 import {Navbar} from './Navbar';
 import './Login.css';
-
+import { Segment } from "semantic-ui-react";
 export function Login (){
     return (
        <div>
-         <Navbar/>
+         <Segment inverted color="blue">
+        <Link style={{ color: "white", float: "left"}} to="/">
+           Home
+        </Link>
+      </Segment>
           <div class="page-login">
   <div class="ui centered grid container">
     <div class="nine wide column">

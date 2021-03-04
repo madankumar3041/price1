@@ -1,10 +1,15 @@
 body {
-    background-color: #ECF0F1;
-  }
-  
-  .page-login {
-    margin-top: 25px;
-  }
-  .ui.inverted.segment{
-    height: 50px;
+  background-color: #ecf0f1;
+}
+
+.page-login {
+  margin-top: 0px;
+  padding-top: 25px;
+}
+.ui.inverted.segment {
+  height: 50px;
+}
+.ui.segment {
+  margin: 0px;
+  border-radius: none;
 }
