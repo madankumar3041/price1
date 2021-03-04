@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { Form } from "semantic-ui-react";
 import { Segment } from "semantic-ui-react";
 import Loader from "../../Common/Loader/Loader";
-import { Button } from 'semantic-ui-react'
+import { Button } from "semantic-ui-react";
 import SearchCard from "./SearchCard/searchCard";
 import "./SearchCard/Styles.css";
+import Footer from "../../Common/Footer/Footer";
 export function AddProduct() {
   const [isLoading, setLoading] = useState(false);
   const [responseData, setResponseData] = useState({});
@@ -24,11 +25,11 @@ export function AddProduct() {
       setHeaderData((prevState) => ({ ...prevState, url: "Url" }));
     }
   }, []);
- 
-  const downloadcsvfile=()=>{
-    var link ='https://marketrate.infoware.xyz/priceprediction/getcsv';
+
+  const downloadcsvfile = () => {
+    var link = "https://marketrate.infoware.xyz/priceprediction/getcsv";
     window.location.href = link;
-  }
+  };
   const searchProduct = () => {
     console.log(formData);
     const payload = {
@@ -64,7 +65,7 @@ export function AddProduct() {
       [event.target.name]: event.target.value,
     }));
   };
- 
+
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
   //   responseData?.data?.data?.bb_data?.products?.product_price ||
@@ -96,7 +97,8 @@ export function AddProduct() {
         <img
           src="https://www.fwpgroup.co.uk/wp-content/uploads/2020/03/male-profile-icon-white-on-the-blue-background-vector-3451989.jpg"
           style={{ position: "relative", bottom: "12px" }}
-          className="ui mini right floated image" alt=" "
+          className="ui mini right floated image"
+          alt=" "
         />
         <Link style={{ color: "white", float: "right" }} to="#">
           My Account
@@ -239,8 +241,8 @@ export function AddProduct() {
       </div>
       {isLoading ? (
         <h1>Please Wait Data is Loading...</h1>
-        // <Loader />
-      ) : responseData?.data?.amazon_data?.products ||
+      ) : // <Loader />
+      responseData?.data?.amazon_data?.products ||
         responseData?.data?.bb_data?.products ||
         responseData?.data?.grofer_data?.products ||
         responseData?.data?.jio_data?.products ? (
@@ -264,7 +266,9 @@ export function AddProduct() {
                 </td>
                 <td className="">
                   {responseData?.data?.amazon_data ? (
-                    <SearchCard data={responseData?.data?.amazon_data?.products} />
+                    <SearchCard
+                      data={responseData?.data?.amazon_data?.products}
+                    />
                   ) : null}
                 </td>
                 {/* <td className="">{responseData?.data?.flipkart_data ? <SearchCard data={responseData?.data?.flipkart_data?.products} /> : null}</td> */}
@@ -280,23 +284,32 @@ export function AddProduct() {
                 </td>
                 <td className="">
                   {responseData?.data?.grofer_data ? (
-                    <SearchCard data={responseData?.data?.grofer_data?.products} />
+                    <SearchCard
+                      data={responseData?.data?.grofer_data?.products}
+                    />
                   ) : null}
                 </td>
               </tr>
             </tbody>
           </table>
           <div className="table-dash">
-            Recommended price(Lowest Price) = Rs {responseData?.recommended_price}
+            Recommended price(Lowest Price) = Rs{" "}
+            {responseData?.recommended_price}
           </div>
-          <Button primary  onClick={()=>
-            //  exportTableToCSV('Searched Products.csv')
-            downloadcsvfile()
-             }>Export To CSV</Button>
+          <Button
+            primary
+            onClick={() =>
+              //  exportTableToCSV('Searched Products.csv')
+              downloadcsvfile()
+            }
+          >
+            Export To CSV
+          </Button>
         </div>
       ) : (
         <h1>No Search Result Found...</h1>
       )}
+      <Footer />
     </div>
   );
 }
