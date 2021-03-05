@@ -8,7 +8,7 @@ export function Navbar() {
     <div className="nav-bar-page">
       <Segment inverted color="blue">
         <Link className="company-logo" style={{ color: "white", float: "left"}} to="/">
-        Price tracker and Recommendation Tool
+        Price Tracker and Recommendation Tool
         </Link>
         <Link style={{ color: "white", float: "right" }} to="/login">
           Login

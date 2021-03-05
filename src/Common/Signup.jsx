@@ -8,7 +8,7 @@ export function Signup (){
        <div>
           <Segment inverted color="blue">
         <Link className="company-logo" style={{ color: "white", float: "left"}} to="/">
-        Price tracker and Recommendation Tool
+        Price Tracker and Recommendation Tool
         </Link>
       </Segment>
           <div class="page-login">
