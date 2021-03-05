@@ -7,12 +7,9 @@ export function Navbar() {
   return (
     <div className="nav-bar-page">
       <Segment inverted color="blue">
-        <Link style={{ color: "white", float: "left"}} to="/">
-           Home
+        <Link className="company-logo" style={{ color: "white", float: "left"}} to="/">
+        Price tracker and Recommendation Tool
         </Link>
-        {/* <Link style={{ color: "white", float: "left" }} to="/admin">
-          Admin
-         </Link> */}
         <Link style={{ color: "white", float: "right" }} to="/login">
           Login
         </Link>
@@ -20,7 +17,9 @@ export function Navbar() {
           SignUp/
         </Link>
       </Segment>
-         <img className="image-dot" src="https://cms.bitlab.host/api/data/72/categories/101/background-image.jpg"></img>
+      <div className="image-dot">
+         {/* <img className="image-dot" src="https://cms.bitlab.host/api/data/72/categories/101/background-image.jpg"></img> */}
+         </div>
          <Footer/>
     </div>
   );

@@ -7,8 +7,8 @@ export function Login (){
     return (
        <div>
          <Segment inverted color="blue">
-        <Link style={{ color: "white", float: "left"}} to="/">
-           Home
+        <Link className="company-logo"style={{ color: "white", float: "left"}} to="/">
+        Price tracker and Recommendation Tool
         </Link>
       </Segment>
           <div class="page-login">
