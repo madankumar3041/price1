@@ -91,8 +91,8 @@ export function AddProduct() {
   return (
     <div>
       <Segment inverted color="blue">
-        <Link style={{ color: "white", float: "left" }} to="/">
-          Home
+        <Link className="company-logo"style={{ color: "white", float: "left" }} to="/">
+        Price tracker and Recommendation Tool
         </Link>
         <img
           src="https://www.fwpgroup.co.uk/wp-content/uploads/2020/03/male-profile-icon-white-on-the-blue-background-vector-3451989.jpg"
