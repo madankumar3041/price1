@@ -66,6 +66,10 @@ export function AddProduct() {
     }));
   };
 
+  const fetchDataDownloadcsv=()=>{
+    searchProduct();
+    downloadcsvfile();
+  }
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
   //   responseData?.data?.data?.bb_data?.products?.product_price ||
@@ -218,6 +222,18 @@ export function AddProduct() {
                         className="search icon"
                       ></i>
                     </button>
+                    <button
+                      class="ui primary button"
+                      style={{ marginBottom: "1rem" }}
+                      onClick={() => fetchDataDownloadcsv()}
+                    >
+                       Search/Download{" "}
+                      <i
+                        style={{ marginLeft: "1rem" }}
+                        aria-hidden="true"
+                        className="search icon"
+                      ></i>
+                    </button>
                     <div class="three blue ui buttons">
                       <button class="ui button">
                         <i aria-hidden="true" className="add icon"></i>
@@ -296,7 +312,7 @@ export function AddProduct() {
             Recommended price(Lowest Price) = Rs{" "}
             {responseData?.recommended_price}
           </div>
-          <Button
+          {/* <Button
             primary
             onClick={() =>
               //  exportTableToCSV('Searched Products.csv')
@@ -304,7 +320,7 @@ export function AddProduct() {
             }
           >
             Export To CSV
-          </Button>
+          </Button> */}
         </div>
       ) : (
         <h1>No Search Result Found...</h1>
