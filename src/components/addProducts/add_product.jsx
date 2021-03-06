@@ -68,7 +68,7 @@ export function AddProduct() {
 
   const fetchDataDownloadcsv=()=>{
     searchProduct();
-    // downloadcsvfile();
+    downloadcsvfile();
   }
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
@@ -225,7 +225,7 @@ export function AddProduct() {
                     <button
                       class="ui primary button"
                       style={{ marginBottom: "1rem" }}
-                      onClick={() => searchProduct()}
+                      onClick={() => fetchDataDownloadcsv()}
                     >
                        Search/Download{" "}
                       <i
@@ -321,7 +321,6 @@ export function AddProduct() {
           >
             Export To CSV
           </Button> */}
-          {downloadcsvfile()}
         </div>
       ) : (
         <h1>No Search Result Found...</h1>
