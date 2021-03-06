@@ -30,7 +30,7 @@ export function AddProduct() {
     var link = "https://marketrate.infoware.xyz/priceprediction/getcsv";
     window.location.href = link;
   };
-  const searchProduct = () => {
+  const searchProduct = (download = false) => {
     console.log(formData);
     const payload = {
       productName: formData.name,
@@ -53,6 +53,9 @@ export function AddProduct() {
         console.log("Success:", data);
         setResponseData(data);
         // window.location.href = "#/searchedResult";
+        if(download){
+          downloadcsvfile();
+        }
         setLoading(false);
       })
       .catch((error) => {
@@ -66,10 +69,6 @@ export function AddProduct() {
     }));
   };
 
-  const fetchDataDownloadcsv=()=>{
-    searchProduct();
-    downloadcsvfile();
-  }
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
   //   responseData?.data?.data?.bb_data?.products?.product_price ||
@@ -225,7 +224,7 @@ export function AddProduct() {
                     <button
                       class="ui primary button"
                       style={{ marginBottom: "1rem" }}
-                      onClick={() => fetchDataDownloadcsv()}
+                      onClick={() => searchProduct(true)}
                     >
                        Search/Download{" "}
                       <i
