@@ -126,6 +126,7 @@ export function AddProduct() {
                         onChange={handleChange}
                       /> */}
                        <select custom name="name" id="select" onChange={handleChange}>
+                         <option >Select Product</option>
                       <option value="Fortune Refined Sunflower Oil 1 Ltr Pouch">Fortune Refined Sunflower Oil 1 Ltr Pouch</option>
                       <option value="Fortune Refined Cottonseed Oil 5 Ltr Jar">Fortune Refined Cottonseed Oil 5 Ltr Jar</option>
                       <option value="Fortune Rozana Basmati Rice 5 kg">Fortune Rozana Basmati Rice 5 kg </option>
