@@ -22,3 +22,19 @@ body{
 .company-logo{
     font-weight: 700;
 }
+.para-head{
+    font-size: 24px;
+    color: white;
+    width: 527px;
+    position: absolute;
+    top: 131px;
+    left: 372px;
+}
+.para-mid{
+    font-size: 24px;
+    color: white;
+    width: 527px;
+    position: absolute;
+    top: 170px;
+    left: 372px;
+}

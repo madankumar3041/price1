@@ -36,8 +36,11 @@ export function AddProduct() {
       productName: formData.name,
       pincode: formData.pincode,
       city: formData.city,
+      product_sku:formData.productsku,
       productCop: formData.companyprice,
       productMrp: formData.mrpprice,
+      ean_id:formData.EanId,
+      asin:formData.Asin
     };
     setLoading(true);
     fetch("https://marketrate.infoware.xyz/priceprediction/v2/", {
@@ -116,21 +119,56 @@ export function AddProduct() {
                   <form class="ui form" onSubmit={(e) => e.preventDefault()}>
                     <div class="field">
                       <label>Product Name</label>
-                      <input
+                      {/* <input
                         type="text"
                         name="name"
                         placeholder="Enter Product Name"
                         onChange={handleChange}
+                      /> */}
+                       <select custom name="name" id="select" onChange={handleChange}>
+                      <option value="Fortune Refined Sunflower Oil 1 Ltr Pouch">Fortune Refined Sunflower Oil 1 Ltr Pouch</option>
+                      <option value="Fortune Refined Cottonseed Oil 5 Ltr Jar">Fortune Refined Cottonseed Oil 5 Ltr Jar</option>
+                      <option value="Fortune Rozana Basmati Rice 5 kg">Fortune Rozana Basmati Rice 5 kg </option>
+                      <option value="Fortune Atta 10 Kg">Fortune Atta 10 Kg</option>
+                      <option value="Fortune Chana Besan 500 gm">Fortune Chana Besan 500 gm </option>
+                      <option value="Fortune Gujarati superfood khichdi 200 gm">Fortune Gujarati superfood khichdi 200 gm</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label> Product Code</label>
+                      <input
+                        type="text"
+                        name="code"
+                        placeholder="Enter product code"
                       />
                     </div>
                     <div class="field">
-                      <label>Product Code</label>
+                      <label> Product Sku</label>
                       <input
-                        type="number"
-                        name="code"
-                        placeholder="Enter code"
+                        type="text"
+                        name="productsku"
+                        placeholder="Enter product sku"
+                        onChange={handleChange}
                       />
                     </div>
+                    <Form.Group widths="equal">
+                      <Form.Input
+                        fluid
+                        label="EAN No"
+                        type="text"
+                        name="EanId"
+                        placeholder="Enter EAN number"
+                        onChange={handleChange}
+                      />
+                      <Form.Input
+                        fluid
+                        label="ASIN No"
+                        placeholder="Enter ASIN number"
+                        type="text"
+                        name="Asin"
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
                     <div class="field">
                       <label>Category</label>
                       <input
@@ -153,13 +191,13 @@ export function AddProduct() {
                         label="Company Offer Price (₹)"
                         type="number"
                         name="companyprice"
-                        placeholder="Enter company offer price ₹"
+                        placeholder="Enter company offer price"
                         onChange={handleChange}
                       />
                       <Form.Input
                         fluid
                         label="MRP(₹)"
-                        placeholder="First name"
+                        placeholder="Enter MRP"
                         type="number"
                         name="mrpprice"
                         onChange={handleChange}

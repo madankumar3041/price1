@@ -18,7 +18,10 @@ export function Navbar() {
         </Link>
       </Segment>
       <div className="image-dot">
-         {/* <img className="image-dot" src="https://cms.bitlab.host/api/data/72/categories/101/background-image.jpg"></img> */}
+        <div className="para-head">
+        Price tracking tools simply help you keep track of 
+        </div>
+        <div className="para-mid">the prices of items online.</div>
          </div>
          <Footer/>
     </div>
