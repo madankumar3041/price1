@@ -10,7 +10,7 @@
     float: left;
 }
 .image-dot {
-    background-image: url('./images/background-image.jpg');
+    background-image: url('./images/photo-1556155092-490a1ba16284.jpg');
     height: calc(100vh - 30px);
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,17 +24,31 @@ body{
 }
 .para-head{
     font-size: 24px;
-    color: white;
     width: 527px;
     position: absolute;
-    top: 131px;
+    top: 68px;
+    font-weight: 700;
     left: 372px;
 }
-.para-mid{
+.sub_para{   
     font-size: 24px;
-    color: white;
     width: 527px;
     position: absolute;
-    top: 170px;
+    top: 108px;
+    font-weight: 700;
+    left: 365px;
+}
+.para-mid{
+    font-size: 16px;
+    width: 922px;
+    position: absolute;
+    top: 149px;
+    left: 175px;
+}
+.sub-para-mid{
+    font-size: 24px;
+    width: 527px;
+    position: absolute;
+    top: 210px;
     left: 372px;
 }

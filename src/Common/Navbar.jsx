@@ -7,8 +7,12 @@ export function Navbar() {
   return (
     <div className="nav-bar-page">
       <Segment inverted color="blue">
-        <Link className="company-logo" style={{ color: "white", float: "left"}} to="/">
-        Price Tracker and Recommendation Tool
+        <Link
+          className="company-logo"
+          style={{ color: "white", float: "left" }}
+          to="/"
+        >
+          Price Tracker and Recommendation Tool
         </Link>
         <Link style={{ color: "white", float: "right" }} to="/login">
           Login
@@ -19,11 +23,12 @@ export function Navbar() {
       </Segment>
       <div className="image-dot">
         <div className="para-head">
-        Price tracking tools simply help you keep track of 
+          Provides competitive pricing on major online
         </div>
-        <div className="para-mid">the prices of items online.</div>
-         </div>
-         <Footer/>
+        <div className="sub_para">marketplaces</div>
+        <div className="para-mid">Strategic price recommendation. Insights to gaps in the online marketplaces</div>
+      </div>
+      <Footer />
     </div>
   );
 }

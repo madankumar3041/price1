@@ -88,3 +88,8 @@ th{
  .company-logo{
     font-weight: 700;
 }
+.image-head{
+  background-image: url('../../../Common/images/background-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

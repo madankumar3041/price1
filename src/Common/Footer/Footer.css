@@ -58,7 +58,10 @@
   background-color: #33353d;
 }
 .copyright-text {
-  margin: 0;
+  
+  text-align: initial;
+  margin-left: 30px;
+
   color: white;
 }
 @media (max-width: 991px) {

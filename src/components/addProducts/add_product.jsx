@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Form } from "semantic-ui-react";
+import { Form, Item } from "semantic-ui-react";
 import { Segment } from "semantic-ui-react";
-import Loader from "../../Common/Loader/Loader";
-import { Button } from "semantic-ui-react";
+
 import SearchCard from "./SearchCard/searchCard";
 import "./SearchCard/Styles.css";
 import Footer from "../../Common/Footer/Footer";
+import data from "../data.json";
+
+
 export function AddProduct() {
   const [isLoading, setLoading] = useState(false);
   const [responseData, setResponseData] = useState({});
@@ -32,6 +34,7 @@ export function AddProduct() {
   };
   const searchProduct = (download = false) => {
     console.log(formData);
+    console.log(data);
     const payload = {
       productName: formData.name,
       pincode: formData.pincode,
@@ -66,12 +69,26 @@ export function AddProduct() {
       });
   };
   const handleChange = (event) => {
+    debugger
     setData((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-  };
 
+  };
+  const handleDDChange = (event) => {
+    debugger
+    setData((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+
+     const filteredData = data.filter((item)=>item.name == event.target.value);
+
+     setData(filteredData[0])
+
+    
+  };
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
   //   responseData?.data?.data?.bb_data?.products?.product_price ||
@@ -110,6 +127,7 @@ export function AddProduct() {
           My Account
         </Link>
       </Segment>
+        <div className="image-head">
       <div className="ui container logc">
         <div class="page-login">
           <div class="ui centered grid container">
@@ -119,14 +137,7 @@ export function AddProduct() {
                   <form class="ui form" onSubmit={(e) => e.preventDefault()}>
                     <div class="field">
                       <label>Product Name</label>
-                      {/* <input
-                        type="text"
-                        name="name"
-                        placeholder="Enter Product Name"
-                        onChange={handleChange}
-                      /> */}
-                       <select custom name="name" id="select" onChange={handleChange}>
-                         <option >Select Product</option>
+                       <select custom name="name" id="select" onChange={handleDDChange}>
                       <option value="Fortune Refined Sunflower Oil 1 Ltr Pouch">Fortune Refined Sunflower Oil 1 Ltr Pouch</option>
                       <option value="Fortune Refined Cottonseed Oil 5 Ltr Jar">Fortune Refined Cottonseed Oil 5 Ltr Jar</option>
                       <option value="Fortune Rozana Basmati Rice 5 kg">Fortune Rozana Basmati Rice 5 kg </option>
@@ -149,6 +160,7 @@ export function AddProduct() {
                         type="text"
                         name="productsku"
                         placeholder="Enter product sku"
+                        value={formData.productsku}
                         onChange={handleChange}
                       />
                     </div>
@@ -159,6 +171,7 @@ export function AddProduct() {
                         type="text"
                         name="EanId"
                         placeholder="Enter EAN number"
+                        value={formData.EanId}
                         onChange={handleChange}
                       />
                       <Form.Input
@@ -168,6 +181,7 @@ export function AddProduct() {
                         type="text"
                         name="Asin"
                         onChange={handleChange}
+                        value={formData.Asin}
                       />
                     </Form.Group>
                     <div class="field">
@@ -193,6 +207,7 @@ export function AddProduct() {
                         type="number"
                         name="companyprice"
                         placeholder="Enter company offer price"
+                        value={formData.companyprice}
                         onChange={handleChange}
                       />
                       <Form.Input
@@ -201,6 +216,7 @@ export function AddProduct() {
                         placeholder="Enter MRP"
                         type="number"
                         name="mrpprice"
+                        value={formData.mrpprice}
                         onChange={handleChange}
                       />
                     </Form.Group>
@@ -211,6 +227,7 @@ export function AddProduct() {
                         type="text"
                         name="city"
                         placeholder="Enter city"
+                        value={formData.city}
                         onChange={handleChange}
                       />
                       <Form.Input
@@ -219,6 +236,7 @@ export function AddProduct() {
                         type="number"
                         name="pincode"
                         placeholder="Enter pincode"
+                        value={formData.pincode}
                         onChange={handleChange}
                       />
                     </Form.Group>
@@ -285,12 +303,14 @@ export function AddProduct() {
                         <i aria-hidden="true" className="edit icon"></i>
                         Manage
                       </button>
+    
                     </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
       {isLoading ? (
