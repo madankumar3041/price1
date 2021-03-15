@@ -5,7 +5,7 @@ import { Segment } from "semantic-ui-react";
 
 import SearchCard from "./SearchCard/searchCard";
 import "./SearchCard/Styles.css";
-import Footer from "../../Common/Footer/Footer";
+
 import data from "../data.json";
 
 
@@ -113,7 +113,7 @@ export function AddProduct() {
   // }
   return (
     <div>
-      <Segment inverted color="blue">
+      {/* <Segment inverted color="blue">
         <Link className="company-logo"style={{ color: "white", float: "left" }} to="/">
         Price Tracker and Recommendation Tool
         </Link>
@@ -126,7 +126,27 @@ export function AddProduct() {
         <Link style={{ color: "white", float: "right" }} to="#">
           My Account
         </Link>
-      </Segment>
+      </Segment> */}
+      <div className="navbar">
+          <ul>
+            <li>
+              <a href="#/">Price Tracker and Recommendation Tool</a>
+            </li>
+          </ul>
+          <ul>
+            {/* <li>
+              <a href="#/signup">Signup</a>
+            </li> */}
+            <li>
+            <img
+          src="https://www.fwpgroup.co.uk/wp-content/uploads/2020/03/male-profile-icon-white-on-the-blue-background-vector-3451989.jpg"
+          className="class-image"
+          alt=" "
+        />
+              <a >My Account</a>
+            </li>
+          </ul>
+        </div>
         <div className="image-head">
       <div className="ui container logc">
         <div class="page-login">
@@ -383,7 +403,6 @@ export function AddProduct() {
       ) : (
         <h1>No Search Result Found...</h1>
       )}
-      <Footer />
     </div>
   );
 }

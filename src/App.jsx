@@ -6,7 +6,6 @@ import {LoggedScreen} from "./Common/logged_screen";
 import {AddProduct} from "./components/addProducts/add_product";
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
-import Footer from "./Common/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -18,8 +17,10 @@ function App() {
       <Route exact path="/add" component={AddProduct}></Route>
       {/* <Route exact path="/admin" component={AddProduct}></Route>
       <AddProduct/> */}   
-      {/* <Footer/> */}
       </Router>
+      <div className="footer">
+        <h4> Copyright &copy;The Infowarehouse 2020-21</h4>
+      </div>
     </div>
   );
 }
