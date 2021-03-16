@@ -49,8 +49,8 @@ export function AddProduct() {
     fetch("https://marketrate.infoware.xyz/priceprediction/v2/", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "content-type": "application/json"
       },
       body: JSON.stringify(payload),
     })
@@ -226,6 +226,7 @@ export function AddProduct() {
                           name="groferId"
                           placeholder="Enter Grofer Id"
                           onChange={handleChange}
+                          value={formData.groferId}
                         />
                       </div>
                       <div class="field">

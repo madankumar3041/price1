@@ -7,7 +7,8 @@
     "companyprice": "189",
     "mrpprice": "230",
     "EanId": "274145",
-    "Asin": "B00NYZTGEO"
+    "Asin": "B00NYZTGEO",
+    "groferId":"43"
   },
   {
     "name": "Fortune Refined Cottonseed Oil 5 Ltr Jar",
@@ -17,7 +18,8 @@
     "companyprice": "659",
     "mrpprice": "850",
     "EanId": "40071744",
-    "Asin": "NA"
+    "Asin": "NA",
+    "groferId":"67595"
   },
   {
     "name": "Fortune Rozana Basmati Rice 5 kg",
@@ -27,7 +29,8 @@
     "companyprice": "309",
     "mrpprice": "585",
     "EanId": "40022617",
-    "Asin": "B08H4L5NNC"
+    "Asin": "B08H4L5NNC",
+    "groferId":"73577"
   },
   {
     "name": "Fortune Atta 10 Kg",
@@ -37,7 +40,8 @@
     "companyprice": "299",
     "mrpprice": "375",
     "EanId": "40120175",
-    "Asin": "NA"
+    "Asin": "NA",
+    "groferId":"380157"
   },
   {
     "name": "Fortune Chana Besan 500 gm",
@@ -47,7 +51,8 @@
     "companyprice": "44",
     "mrpprice": "60",
     "EanId": "30005416",
-    "Asin": "B085B9YVBL"
+    "Asin": "B085B9YVBL",
+    "groferId":"32966"
   },
   {
     "name": "Fortune Gujarati superfood khichdi 200 gm",
@@ -57,6 +62,7 @@
     "companyprice": "24",
     "mrpprice": "49",
     "EanId": "40191678",
-    "Asin": "B0821W5R8G"
+    "Asin": "B0821W5R8G",
+    "groferId":"405839"
   }
 ]
