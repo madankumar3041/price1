@@ -8,7 +8,6 @@ import "./SearchCard/Styles.css";
 
 import data from "../data.json";
 
-
 export function AddProduct() {
   const [isLoading, setLoading] = useState(false);
   const [responseData, setResponseData] = useState({});
@@ -39,17 +38,19 @@ export function AddProduct() {
       productName: formData.name,
       pincode: formData.pincode,
       city: formData.city,
-      product_sku:formData.productsku,
+      product_sku: formData.productsku,
       productCop: formData.companyprice,
       productMrp: formData.mrpprice,
-      ean_id:formData.EanId,
-      asin:formData.Asin
+      ean_id: formData.EanId,
+      asin: formData.Asin,
+      grofer_id:formData.groferId,
     };
     setLoading(true);
     fetch("https://marketrate.infoware.xyz/priceprediction/v2/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(payload),
     })
@@ -59,7 +60,7 @@ export function AddProduct() {
         console.log("Success:", data);
         setResponseData(data);
         // window.location.href = "#/searchedResult";
-        if(download){
+        if (download) {
           downloadcsvfile();
         }
         setLoading(false);
@@ -69,25 +70,22 @@ export function AddProduct() {
       });
   };
   const handleChange = (event) => {
-    debugger
+    debugger;
     setData((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-
   };
   const handleDDChange = (event) => {
-    debugger
+    debugger;
     setData((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
 
-     const filteredData = data.filter((item)=>item.name == event.target.value);
+    const filteredData = data.filter((item) => item.name == event.target.value);
 
-     setData(filteredData[0])
-
-    
+    setData(filteredData[0]);
   };
   // if (
   //   responseData?.data?.data?.amazon_data?.products?.product_price ||
@@ -128,209 +126,226 @@ export function AddProduct() {
         </Link>
       </Segment> */}
       <div className="navbar">
-          <ul>
-            <li>
-              <a href="#/">Price Tracker and Recommendation Tool</a>
-            </li>
-          </ul>
-          <ul>
-            {/* <li>
+        <ul>
+          <li>
+            <a href="#/">Price Tracker and Recommendation Tool</a>
+          </li>
+        </ul>
+        <ul>
+          {/* <li>
               <a href="#/signup">Signup</a>
             </li> */}
-            <li>
+          <li>
             <img
-          src="https://www.fwpgroup.co.uk/wp-content/uploads/2020/03/male-profile-icon-white-on-the-blue-background-vector-3451989.jpg"
-          className="class-image"
-          alt=" "
-        />
-              <a >My Account</a>
-            </li>
-          </ul>
-        </div>
-        <div className="image-head">
-      <div className="ui container logc">
-        <div class="page-login">
-          <div class="ui centered grid container">
-            <div class="nine wide column">
-              <div class="ui fluid card">
-                <div class="content">
-                  <form class="ui form" onSubmit={(e) => e.preventDefault()}>
-                    <div class="field">
-                      <label>Product Name</label>
-                       <select custom name="name" id="select" onChange={handleDDChange}>
-                      <option value="Fortune Refined Sunflower Oil 1 Ltr Pouch">Fortune Refined Sunflower Oil 1 Ltr Pouch</option>
-                      <option value="Fortune Refined Cottonseed Oil 5 Ltr Jar">Fortune Refined Cottonseed Oil 5 Ltr Jar</option>
-                      <option value="Fortune Rozana Basmati Rice 5 kg">Fortune Rozana Basmati Rice 5 kg </option>
-                      <option value="Fortune Atta 10 Kg">Fortune Atta 10 Kg</option>
-                      <option value="Fortune Chana Besan 500 gm">Fortune Chana Besan 500 gm </option>
-                      <option value="Fortune Gujarati superfood khichdi 200 gm">Fortune Gujarati superfood khichdi 200 gm</option>
-                      </select>
-                    </div>
-                    <div class="field">
-                      <label> Product Code</label>
-                      <input
-                        type="text"
-                        name="code"
-                        placeholder="Enter product code"
-                      />
-                    </div>
-                    <div class="field">
-                      <label> Product Sku</label>
-                      <input
-                        type="text"
-                        name="productsku"
-                        placeholder="Enter product sku"
-                        value={formData.productsku}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <Form.Group widths="equal">
-                      <Form.Input
-                        fluid
-                        label="EAN No"
-                        type="text"
-                        name="EanId"
-                        placeholder="Enter EAN number"
-                        value={formData.EanId}
-                        onChange={handleChange}
-                      />
-                      <Form.Input
-                        fluid
-                        label="ASIN No"
-                        placeholder="Enter ASIN number"
-                        type="text"
-                        name="Asin"
-                        onChange={handleChange}
-                        value={formData.Asin}
-                      />
-                    </Form.Group>
-                    <div class="field">
-                      <label>Category</label>
-                      <input
-                        type="text"
-                        name="cost"
-                        placeholder="Enter category"
-                      />
-                    </div>
-                    <div class="field">
-                      <label>Brand</label>
-                      <input
-                        type="text"
-                        name="code"
-                        placeholder="Enter brand"
-                      />
-                    </div>
-                    <Form.Group widths="equal">
-                      <Form.Input
-                        fluid
-                        label="Company Offer Price (₹)"
-                        type="number"
-                        name="companyprice"
-                        placeholder="Enter company offer price"
-                        value={formData.companyprice}
-                        onChange={handleChange}
-                      />
-                      <Form.Input
-                        fluid
-                        label="MRP(₹)"
-                        placeholder="Enter MRP"
-                        type="number"
-                        name="mrpprice"
-                        value={formData.mrpprice}
-                        onChange={handleChange}
-                      />
-                    </Form.Group>
-                    <Form.Group widths="equal">
-                      <Form.Input
-                        fluid
-                        label="City"
-                        type="text"
-                        name="city"
-                        placeholder="Enter city"
-                        value={formData.city}
-                        onChange={handleChange}
-                      />
-                      <Form.Input
-                        fluid
-                        label="PinCode"
-                        type="number"
-                        name="pincode"
-                        placeholder="Enter pincode"
-                        value={formData.pincode}
-                        onChange={handleChange}
-                      />
-                    </Form.Group>
-                    <div
-                      className="form-check"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      <div class="ui checkbox">
-                        <input type="checkbox" tabindex="0" />
-                        <label>Amazon</label>
+              src="https://www.fwpgroup.co.uk/wp-content/uploads/2020/03/male-profile-icon-white-on-the-blue-background-vector-3451989.jpg"
+              className="class-image"
+              alt=" "
+            />
+            <a>My Account</a>
+          </li>
+        </ul>
+      </div>
+      <div className="image-head">
+        <div className="ui container logc">
+          <div class="page-login">
+            <div class="ui centered grid container">
+              <div class="nine wide column">
+                <div class="ui fluid card">
+                  <div class="content">
+                    <form class="ui form" onSubmit={(e) => e.preventDefault()}>
+                      <div class="field">
+                        <label>Product Name</label>
+                        <select
+                          custom
+                          name="name"
+                          id="select"
+                          onChange={handleDDChange}
+                        >
+                          <option value="Fortune Refined Sunflower Oil 1 Ltr Pouch">
+                            Fortune Refined Sunflower Oil 1 Ltr Pouch
+                          </option>
+                          <option value="Fortune Refined Cottonseed Oil 5 Ltr Jar">
+                            Fortune Refined Cottonseed Oil 5 Ltr Jar
+                          </option>
+                          <option value="Fortune Rozana Basmati Rice 5 kg">
+                            Fortune Rozana Basmati Rice 5 kg{" "}
+                          </option>
+                          <option value="Fortune Atta 10 Kg">
+                            Fortune Atta 10 Kg
+                          </option>
+                          <option value="Fortune Chana Besan 500 gm">
+                            Fortune Chana Besan 500 gm{" "}
+                          </option>
+                          <option value="Fortune Gujarati superfood khichdi 200 gm">
+                            Fortune Gujarati superfood khichdi 200 gm
+                          </option>
+                        </select>
                       </div>
-                      {/* <div class=" ui checkbox"><input type="checkbox" tabindex="0" /><label>Flipkart</label></div> */}
-                      <div class=" ui checkbox">
-                        <input type="checkbox" tabindex="0" />
-                        <label>Jiomart</label>
+                      <div class="field">
+                        <label> Product Code</label>
+                        <input
+                          type="text"
+                          name="code"
+                          placeholder="Enter product code"
+                        />
                       </div>
-                      <div class=" ui checkbox">
-                        <input type="checkbox" tabindex="0" />
-                        <label>Grofers</label>
+                      <div class="field">
+                        <label> Product Sku</label>
+                        <input
+                          type="text"
+                          name="productsku"
+                          placeholder="Enter product sku"
+                          value={formData.productsku}
+                          onChange={handleChange}
+                        />
                       </div>
-                      <div class="ui checkbox">
-                        <input type="checkbox" tabindex="0" />
-                        <label>BigBasket</label>
+                      <Form.Group widths="equal">
+                        <Form.Input
+                          fluid
+                          label="EAN No"
+                          type="text"
+                          name="EanId"
+                          placeholder="Enter EAN number"
+                          value={formData.EanId}
+                          onChange={handleChange}
+                        />
+                        <Form.Input
+                          fluid
+                          label="ASIN No"
+                          placeholder="Enter ASIN number"
+                          type="text"
+                          name="Asin"
+                          onChange={handleChange}
+                          value={formData.Asin}
+                        />
+                      </Form.Group>
+                      <div class="field">
+                        <label>Grofers Id</label>
+                        <input
+                          type="text"
+                          name="groferId"
+                          placeholder="Enter Grofer Id"
+                          onChange={handleChange}
+                        />
                       </div>
-                    </div>
-                    <button
-                      class="ui primary button"
-                      style={{ marginBottom: "1rem" }}
-                      onClick={() => searchProduct()}
-                    >
-                      Start Search{" "}
-                      <i
-                        style={{ marginLeft: "1rem" }}
-                        aria-hidden="true"
-                        className="search icon"
-                      ></i>
-                    </button>
-                    <button
-                      class="ui primary button"
-                      style={{ marginBottom: "1rem" }}
-                      onClick={() => searchProduct(true)}
-                    >
-                       Search/Download{" "}
-                      <i
-                        style={{ marginLeft: "1rem" }}
-                        aria-hidden="true"
-                        className="search icon"
-                      ></i>
-                    </button>
-                    <div class="three blue ui buttons">
-                      <button class="ui button">
-                        <i aria-hidden="true" className="add icon"></i>
-                        Add Single Product
+                      <div class="field">
+                        <label>Brand</label>
+                        <input
+                          type="text"
+                          name="code"
+                          placeholder="Enter brand"
+                        />
+                      </div>
+                      <Form.Group widths="equal">
+                        <Form.Input
+                          fluid
+                          label="Company Offer Price (₹)"
+                          type="number"
+                          name="companyprice"
+                          placeholder="Enter company offer price"
+                          value={formData.companyprice}
+                          onChange={handleChange}
+                        />
+                        <Form.Input
+                          fluid
+                          label="MRP(₹)"
+                          placeholder="Enter MRP"
+                          type="number"
+                          name="mrpprice"
+                          value={formData.mrpprice}
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
+                      <Form.Group widths="equal">
+                        <Form.Input
+                          fluid
+                          label="City"
+                          type="text"
+                          name="city"
+                          placeholder="Enter city"
+                          value={formData.city}
+                          onChange={handleChange}
+                        />
+                        <Form.Input
+                          fluid
+                          label="PinCode"
+                          type="number"
+                          name="pincode"
+                          placeholder="Enter pincode"
+                          value={formData.pincode}
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
+                      <div
+                        className="form-check"
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          marginBottom: "0.5rem",
+                        }}
+                      >
+                        <div class="ui checkbox">
+                          <input type="checkbox" tabindex="0" />
+                          <label>Amazon</label>
+                        </div>
+                        {/* <div class=" ui checkbox"><input type="checkbox" tabindex="0" /><label>Flipkart</label></div> */}
+                        <div class=" ui checkbox">
+                          <input type="checkbox" tabindex="0" />
+                          <label>Jiomart</label>
+                        </div>
+                        <div class=" ui checkbox">
+                          <input type="checkbox" tabindex="0" />
+                          <label>Grofers</label>
+                        </div>
+                        <div class="ui checkbox">
+                          <input type="checkbox" tabindex="0" />
+                          <label>BigBasket</label>
+                        </div>
+                      </div>
+                      <button
+                        class="ui primary button"
+                        style={{ marginBottom: "1rem" }}
+                        onClick={() => searchProduct()}
+                      >
+                        Start Search{" "}
+                        <i
+                          style={{ marginLeft: "1rem" }}
+                          aria-hidden="true"
+                          className="search icon"
+                        ></i>
                       </button>
-                      <button class="ui button">
-                        <i aria-hidden="true" className="list icon"></i>
-                        Batch Import
+                      <button
+                        class="ui primary button"
+                        style={{ marginBottom: "1rem" }}
+                        onClick={() => searchProduct(true)}
+                      >
+                        Search/Download{" "}
+                        <i
+                          style={{ marginLeft: "1rem" }}
+                          aria-hidden="true"
+                          className="search icon"
+                        ></i>
                       </button>
-                      <button class="ui button">
-                        <i aria-hidden="true" className="edit icon"></i>
-                        Manage
-                      </button>
-    
-                    </div>
-                  </form>
+                      <div class="three blue ui buttons">
+                        <button class="ui button">
+                          <i aria-hidden="true" className="add icon"></i>
+                          Add Single Product
+                        </button>
+                        <button class="ui button">
+                          <i aria-hidden="true" className="list icon"></i>
+                          Batch Import
+                        </button>
+                        <button class="ui button">
+                          <i aria-hidden="true" className="edit icon"></i>
+                          Manage
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
       {isLoading ? (
