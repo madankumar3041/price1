@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import {Login} from './Common/Login';
 import {Signup} from './Common/Signup';
 import {Navbar} from './Common/Navbar';
@@ -10,13 +10,15 @@ function App() {
   return (
     <div className="App">
       <Router baseName="/">
+      <Switch>
       <Route exact path="/" component={Navbar}></Route>
       <Route exact path="/login" component={Login}></Route>
       <Route exact path="/signup" component={Signup}></Route>
-//       <Route exact path="/list" component={LoggedScreen}></Route>
-//       <Route exact path="/add" component={AddProduct}></Route>
+      {/* <Route exact path="/list" component={LoggedScreen}></Route> */}
+      {/* <Route exact path="/add" component={AddProduct}></Route> */}
       {/* <Route exact path="/admin" component={AddProduct}></Route>
       <AddProduct/> */}   
+         </Switch>
       </Router>
       <div className="footer">
         <h4> Copyright &copy;The Infowarehouse 2020-21</h4>
