@@ -13,8 +13,8 @@ function App() {
       <Route exact path="/" component={Navbar}></Route>
       <Route exact path="/login" component={Login}></Route>
       <Route exact path="/signup" component={Signup}></Route>
-      <Route exact path="/list" component={LoggedScreen}></Route>
-      <Route exact path="/add" component={AddProduct}></Route>
+//       <Route exact path="/list" component={LoggedScreen}></Route>
+//       <Route exact path="/add" component={AddProduct}></Route>
       {/* <Route exact path="/admin" component={AddProduct}></Route>
       <AddProduct/> */}   
       </Router>
