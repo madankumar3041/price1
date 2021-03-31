@@ -86,7 +86,7 @@ export function Login() {
                       required
                     />
                   </div>
-                  <button class="ui primary labeled icon button" type="submit">
+                  <button class="ui primary labeled icon button" type="submit" disabled>
                     <i class="unlock alternate icon"></i>
                     <Link to="/list" style={{ color: "white" }}>
                       Login
